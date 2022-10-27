@@ -1,4 +1,4 @@
-package Tp01;
+package fundamentos_java;
 
 import java.util.Scanner;
 
@@ -13,8 +13,13 @@ public class tp01 {
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
-
 		String menu = "";
+		nomes = new String[EOF];
+		av1 = new float[EOF];
+		av2 = new float[EOF];
+		
+		int ponteiro = 0;
+		
 		do {
 
 			System.out.println("--------------------------------------------------");
@@ -33,8 +38,27 @@ public class tp01 {
 
 			switch (menu) {
 			case "1":
-				System.out.println("Cadastrar Aluno e suas notas.");
+				if(ponteiro < EOF) {
+					
+					System.out.print("Entre com o Nome do Aluno : ");
+					nomes[ponteiro] = in.next();
+					
+					System.out.print("Entre com a nota da Av1 : ");
+					av1[ponteiro] = in.nextFloat();
+					
+					System.out.print("Entre com a nota da Av2 : ");
+					av2[ponteiro] = in.nextFloat();
+					
+					
+				}else {
+					
+					System.out.println("Não é possível novo cadastramento - EOF");
+					
+				}
+				
+				ponteiro++;
 				break;
+				
 			case "2":
 
 				break;
