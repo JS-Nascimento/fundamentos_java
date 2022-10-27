@@ -33,7 +33,7 @@ public class tp01 {
 
 			switch (menu) {
 			case "1":
-
+				System.out.println("Cadastrar Aluno e suas notas.");
 				break;
 			case "2":
 
