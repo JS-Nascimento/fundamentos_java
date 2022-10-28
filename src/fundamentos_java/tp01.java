@@ -1,5 +1,6 @@
 package fundamentos_java;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class tp01 {
@@ -9,17 +10,53 @@ public class tp01 {
 	private static String[] nomes;
 	private static float[] av1;
 	private static float[] av2;
+	private static int ponteiro = 0;
+
+	public static String resultado(float media) {
+		String mensagem = "";
+
+		if (media >= 7) {
+			mensagem = " DML ";
+
+		} else if (media >= 4 && media < 7) {
+			mensagem = " ND ";
+		} else {
+			mensagem = " Reprovado por aproveitamento";
+		}
+
+		return mensagem;
+
+	}
+
+	public static float media(float nota1, float nota2) {
+		return (nota1 + nota2) / 2;
+
+	}
+
+	public static void imprimir(int id) {
+		float media = media(av1[id], av2[id]);
+
+		System.out.printf("Aluno ID # " + id + " - Nome: " + nomes[id] + " - Notas: Av1: " + av1[id] + " - Av2: "
+				+ av2[id] + " - Média das Notas: " + media + " - Resultado >>>>> " + resultado(media) + " <<<<<");
+		System.out.println();
+
+	}
+
+	public static void imprimir() {
+
+		for (int i = 0; i < ponteiro; i++) {
+			imprimir(i);
+		}
+	}
 
 	public static void main(String[] args) {
-		
+		Locale.setDefault(Locale.US);
 		Scanner in = new Scanner(System.in);
 		String menu = "";
 		nomes = new String[EOF];
 		av1 = new float[EOF];
 		av2 = new float[EOF];
-		
-		int ponteiro = 0;
-		
+
 		do {
 
 			System.out.println("--------------------------------------------------");
@@ -32,41 +69,45 @@ public class tp01 {
 			System.out.println(" ");
 			System.out.println("--------------------------------------------------");
 
-			
-
 			menu = in.next();
 
 			switch (menu) {
 			case "1":
-				if(ponteiro < EOF) {
-					
+				if (ponteiro < EOF) {
+
 					System.out.print("Entre com o Nome do Aluno : ");
 					nomes[ponteiro] = in.next();
-					
+
 					System.out.print("Entre com a nota da Av1 : ");
 					av1[ponteiro] = in.nextFloat();
-					
+
 					System.out.print("Entre com a nota da Av2 : ");
 					av2[ponteiro] = in.nextFloat();
-					
-					
-				}else {
-					
+
+				} else {
+
 					System.out.println("Não é possível novo cadastramento - EOF");
-					
+
 				}
-				
+
 				ponteiro++;
 				break;
-				
-			case "2":
 
+			case "2":
+				System.out.print("Entre com o ID# do Aluno :");
+				int aluno = in.nextInt();
+
+				if (aluno >= 0) {
+					imprimir(aluno);
+				} else {
+					System.out.println("Forneça corretamente o ID# do Aluno!");
+				}
 				break;
 			case "3":
-
+				imprimir();
 				break;
 			case "4":
-
+				System.out.println("Até a próxima Rodribot !!!");
 				break;
 
 			default:
@@ -74,9 +115,8 @@ public class tp01 {
 			}
 
 		} while (!"4".equalsIgnoreCase(menu));
-		
-		
-	in.close();
+
+		in.close();
 
 	}
 
