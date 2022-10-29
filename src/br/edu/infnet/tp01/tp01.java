@@ -43,6 +43,7 @@ public class tp01 {
 	}
 
 	public static void imprimir() {
+		
 
 		for (int i = 0; i < ponteiro; i++) {
 			imprimir(i);
@@ -51,7 +52,7 @@ public class tp01 {
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
-		Scanner in = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		String menu = "";
 		nomes = new String[EOF];
 		av1 = new float[EOF];
@@ -69,20 +70,25 @@ public class tp01 {
 			System.out.println(" ");
 			System.out.println("--------------------------------------------------");
 
-			menu = in.next();
+			menu = sc.next();
 
 			switch (menu) {
 			case "1":
 				if (ponteiro < EOF) {
+					
+					sc.nextLine();
+					
+					System.out.printf("\nEntre com o Nome do Aluno : ");
+					nomes[ponteiro] = sc.nextLine();
+					
 
-					System.out.print("Entre com o Nome do Aluno : ");
-					nomes[ponteiro] = in.next();
+					System.out.printf("Entre com a nota da Av1 : ");
+					av1[ponteiro] = sc.nextFloat();
+					
 
-					System.out.print("Entre com a nota da Av1 : ");
-					av1[ponteiro] = in.nextFloat();
-
-					System.out.print("Entre com a nota da Av2 : ");
-					av2[ponteiro] = in.nextFloat();
+					System.out.printf("Entre com a nota da Av2 : ");
+					av2[ponteiro] = sc.nextFloat();
+					
 
 				} else {
 
@@ -95,7 +101,7 @@ public class tp01 {
 
 			case "2":
 				System.out.print("Entre com o ID# do Aluno :");
-				int aluno = in.nextInt();
+				int aluno = sc.nextInt();
 
 				if (aluno >= 0 && aluno <= ponteiro) {
 					imprimir(aluno);
@@ -116,7 +122,7 @@ public class tp01 {
 
 		} while (!"4".equalsIgnoreCase(menu));
 
-		in.close();
+		sc.close();
 
 	}
 
