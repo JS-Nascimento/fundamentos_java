@@ -1,4 +1,4 @@
-package fundamentos_java;
+package br.edu.infnet.tp01;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -97,7 +97,7 @@ public class tp01 {
 				System.out.print("Entre com o ID# do Aluno :");
 				int aluno = in.nextInt();
 
-				if (aluno >= 0) {
+				if (aluno >= 0 && aluno <= ponteiro) {
 					imprimir(aluno);
 				} else {
 					System.out.println("Forneça corretamente o ID# do Aluno!");
