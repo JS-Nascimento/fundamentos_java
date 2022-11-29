@@ -75,15 +75,20 @@ public class tp01 {
 			switch (menu) {
 			case "1":
 				if (ponteiro < EOF) {
+					
 					sc.nextLine();
-					System.out.printf("\nEntre com o Nome do Aluno : \n");
+					
+					System.out.printf("\nEntre com o Nome do Aluno : ");
 					nomes[ponteiro] = sc.nextLine();
+					
 
-					System.out.printf("Entre com a nota da Av1 : \n");
+					System.out.printf("Entre com a nota da Av1 : ");
 					av1[ponteiro] = sc.nextFloat();
+					
 
-					System.out.printf("Entre com a nota da Av2 : \n");
+					System.out.printf("Entre com a nota da Av2 : ");
 					av2[ponteiro] = sc.nextFloat();
+					
 
 				} else {
 
